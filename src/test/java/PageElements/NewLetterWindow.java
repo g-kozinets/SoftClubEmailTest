@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+//Класс для взаимодействия с окном создания нового сообщения
 public class NewLetterWindow {
 
     private WebDriver driver;
@@ -43,6 +43,7 @@ public class NewLetterWindow {
     public  void clickSend(){
         new Button(driver, SEND_BUTTON).click();
 
+        //Проверка успешной отправки на двух языках
         WebDriverWait wait = new WebDriverWait(driver, 5);
         try {
             Boolean confirmation = wait.until(ExpectedConditions.textToBe(By.cssSelector(".nH .J-J5-Ji .vh .bAq"), "Письмо отправлено."));

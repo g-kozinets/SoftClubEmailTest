@@ -32,11 +32,13 @@ public class ExampleTest {
 
     }
 
+    //Вход в аккаунт перед тестом на отправку письма и выход из аккаунта
     @BeforeGroups("send and sign out")
     public void signIn() {
         loginPage.doLogin(login, pass);
     }
 
+    //Выход из аккаунта после теста на вход
     @AfterGroups("sign in")
     public void signOut() {
         MainPage mainPage = new MainPage(driver);
@@ -44,6 +46,7 @@ public class ExampleTest {
     }
 
 
+    //Тест на проверку входа в аккаунт
     @Test(groups = "sign in")
     public void shouldSignIn() {
         loginPage.doLogin(login, pass);
@@ -52,6 +55,7 @@ public class ExampleTest {
         Assert.assertEquals(applicationName.getAttribute("content"), applicationTitle);
     }
 
+    //Тест на проверку выхода из аккаунта
     @Test
     public void shouldSignOut() {
         loginPage.doLogin(login, pass);
@@ -61,6 +65,7 @@ public class ExampleTest {
         Assert.assertEquals(driver.getTitle(), "Gmail");
     }
 
+    //Тест на проверку отправки письма
     @Test(groups = "send and sign out")
     public void shouldSendLetter() {
         MainPage mainPage = new MainPage(driver);

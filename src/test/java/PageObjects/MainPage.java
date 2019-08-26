@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+//Класс для взаимодействия с главной странмцей, на которой отображается список полученных писем
 public class MainPage {
     private WebDriver driver;
     private Button btnAccountIcon;
@@ -49,6 +50,7 @@ public class MainPage {
         return letter.toString();
     }
 
+    //Ожидание анимации загрузки Gmail
     private void waitLoading(){
         WebDriverWait wait = new WebDriverWait(driver, 5);
         Boolean loading = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#loading > div:nth-child(2) > div.msg")));

@@ -3,6 +3,7 @@ package PageElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+//Класс для получения данных о письме из списка полученных писем на главной странице
 public class Letter {
     private String sender;
     private String subject;
